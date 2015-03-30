@@ -1,19 +1,35 @@
 call vice#Extend({
     \ 'addons': [
-        \ 'github:zeekay/vim-instant-markdown',
-        \ 'github:plasticboy/vim-markdown',
-        \ 'github:jtratner/vim-flavored-markdown',
+        \ 'github:jszakmeister/markdown2ctags',
+        \ 'github:chrisbra/NrrwRgn',
+        \ 'github:vim-pandoc/vim-pandoc-after',
+        \ 'github:vim-pandoc/vim-pandoc-syntax',
+        \ 'github:dhruvasagar/vim-table-mode',
     \],
 \ })
 
-au BufNewFile,BufRead *.apib                        setl filetype=markdown
-au BufNewFile,BufRead *.{md,mkd,mkdn,mark*}         setl filetype=markdown
+au BufNewFile,BufRead *.apib setl filetype=pandoc
+au FileType pandoc set textwidth=80
 
-au FileType markdown set textwidth=80
-let g:markdown_include_jekyll_support = 1
-let g:markdown_enable_folding = 0
-let g:markdown_enable_mappings = 1
-let g:markdown_enable_insert_mode_mappings = 1
-let g:markdown_enable_insert_mode_leader_mappings = 0
-let g:markdown_enable_spell_checking = 0
-let g:vim_markdown_folding_disabled = 1
+let g:pandoc#spell#enabled = 0
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#modules#enabled = []
+let g:pandoc#after#modules#enabled = ["nrrwrgn", "tablemode"]
+
+" Add support for markdown files in tagbar.
+let g:tagbar_type_pandoc = {
+    \ 'ctagstype': 'pandoc',
+    \ 'ctagsbin':  g:vice.addons_dir.'/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs': '-f - --sort=yes',
+    \ 'kinds': [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro': '|',
+    \ 'kind2scope': {
+        \ 's': 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
+let g:nrrw_rgn_height = 30
