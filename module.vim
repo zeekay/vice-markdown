@@ -2,10 +2,11 @@ call vice#Extend({
     \ 'addons': [
         \ 'github:jszakmeister/markdown2ctags',
         \ 'github:chrisbra/NrrwRgn',
+        \ 'github:vim-pandoc/vim-pandoc',
         \ 'github:vim-pandoc/vim-pandoc-after',
         \ 'github:vim-pandoc/vim-pandoc-syntax',
         \ 'github:dhruvasagar/vim-table-mode',
-        \ 'github:zeekay/vim-instant-markdown',
+        \ 'zeekay/vim-instant-markdown',
     \],
 \ })
 
