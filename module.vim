@@ -6,7 +6,7 @@ call vice#Extend({
         \ 'github:vim-pandoc/vim-pandoc-after',
         \ 'github:vim-pandoc/vim-pandoc-syntax',
         \ 'github:dhruvasagar/vim-table-mode',
-        \ 'zeekay/vim-instant-markdown',
+        \ 'github:zeekay/vim-instant-markdown',
     \],
 \ })
 
