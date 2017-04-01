@@ -12,6 +12,9 @@ call vice#Extend({
 
 au BufNewFile,BufRead *.apib setl filetype=pandoc
 au FileType pandoc set textwidth=80
+au FileType pandoc setlocal comments=fb:*,fb:-,fb:+,n:> commentstring=<!--%s-->
+au FileType pandoc setlocal formatoptions+=tcqln formatoptions-=r formatoptions-=o
+au FileType pandoc setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 
 let g:pandoc#spell#enabled = 0
 let g:pandoc#syntax#conceal#use = 0
