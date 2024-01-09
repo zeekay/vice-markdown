@@ -17,9 +17,10 @@ au FileType pandoc setlocal formatoptions+=tcqln formatoptions-=r formatoptions-
 au FileType pandoc setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 
 let g:pandoc#spell#enabled = 0
-let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#modules#enabled = []
 let g:pandoc#after#modules#enabled = ["nrrwrgn", "tablemode"]
+let g:pandoc#syntax#style#emphases = 0
 
 " Add support for markdown files in tagbar.
 let g:tagbar_type_pandoc = {
